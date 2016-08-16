@@ -25,6 +25,10 @@ namespace Turki {
 		SDL_DestroyWindow(m_Window);
 		SDL_Quit();
 	}
+	SDL_Renderer* Window::getRenderer()
+	{
+		return m_Renderer;
+	}
 
 	bool Window::init()
 	{
@@ -51,12 +55,5 @@ namespace Turki {
 		}
 
 		return true;
-	}
-	void Window::render()
-	{
-		SDL_SetRenderDrawColor(m_Renderer, 183, 183, 183, 255);
-		SDL_RenderClear(m_Renderer);
-		SDL_RenderPresent(m_Renderer);
-
 	}
 }

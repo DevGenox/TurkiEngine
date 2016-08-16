@@ -16,8 +16,8 @@ namespace Turki {
 		~Window();
 		bool init();
 		bool running() { return m_Running; }
+		SDL_Renderer* getRenderer();
 		void update() {}
-		void render();
 		void EventHandle();
 	private:
 		SDL_Window* m_Window;

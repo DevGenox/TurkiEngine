@@ -1,6 +1,8 @@
-﻿  SoundManager.cpp
+﻿  Window.cpp
   main.cpp
+  ImageManager.cpp
+  GameObject.cpp
+  Game.cpp
   Generating Code...
-  LINK : D:\Project\Visual Studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.exe not found or not built by the last incremental link; performing full link
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.exe
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Debug\TurkiEngine.pdb (Partial PDB)

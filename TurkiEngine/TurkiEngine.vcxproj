@@ -136,12 +136,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObjects\GameObject.h" />
     <ClInclude Include="ImageManager\ImageManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Sound\SoundManager.h" />
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObjects\GameObject.cpp" />
     <ClCompile Include="ImageManager\ImageManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sound\SoundManager.cpp" />
