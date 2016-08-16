@@ -136,11 +136,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ImageManager\ImageManager.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Sound\SoundManager.h" />
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ImageManager\ImageManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sound\SoundManager.cpp" />
     <ClCompile Include="Window\Window.cpp" />

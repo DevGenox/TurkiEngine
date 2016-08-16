@@ -1,9 +1,9 @@
-﻿  main.cpp
-  SoundManager.cpp
+﻿  ImageManager.cpp
+  main.cpp
   Generating code
-  385 of 394 functions (97.7%) were compiled, the rest were copied from previous compilation.
-    167 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+  92 of 476 functions (19.3%) were compiled, the rest were copied from previous compilation.
+    82 functions were new in current compilation
+    16 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)

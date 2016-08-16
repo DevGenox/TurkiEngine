@@ -1,4 +1,21 @@
-﻿Window.obj : error LNK2001: unresolved external symbol SDL_RenderClear
+﻿  ImageManager.cpp
+  main.cpp
+  SoundManager.cpp
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_DestroyTexture
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_RenderCopy
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_QueryTexture
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_FreeSurface
+ImageManager.obj : error LNK2001: unresolved external symbol IMG_Load
+ImageManager.obj : error LNK2001: unresolved external symbol SDL_CreateTextureFromSurface
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_VolumeMusic
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_OpenAudio
+SoundManager.obj : error LNK2001: unresolved external symbol SDL_GetError
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_PlayChannelTimed
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_LoadMUS
+SoundManager.obj : error LNK2001: unresolved external symbol SDL_RWFromFile
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_LoadWAV_RW
+SoundManager.obj : error LNK2001: unresolved external symbol Mix_PlayMusic
+Window.obj : error LNK2001: unresolved external symbol SDL_RenderClear
 Window.obj : error LNK2001: unresolved external symbol SDL_DestroyRenderer
 Window.obj : error LNK2001: unresolved external symbol SDL_Init
 Window.obj : error LNK2001: unresolved external symbol SDL_DestroyWindow
@@ -8,4 +25,4 @@ Window.obj : error LNK2001: unresolved external symbol SDL_RenderPresent
 Window.obj : error LNK2001: unresolved external symbol SDL_CreateWindow
 Window.obj : error LNK2001: unresolved external symbol SDL_SetRenderDrawColor
 LIBCMT.lib(exe_main.obj) : error LNK2001: unresolved external symbol main
-D:\Project\Visual Studio 2015\Projects\TurkiEngine\x64\Release\TurkiEngine.exe : fatal error LNK1120: 10 unresolved externals
+D:\Project\Visual Studio 2015\Projects\TurkiEngine\x64\Release\TurkiEngine.exe : fatal error LNK1120: 24 unresolved externals
