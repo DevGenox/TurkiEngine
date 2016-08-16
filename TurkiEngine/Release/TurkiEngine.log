@@ -1,7 +1,9 @@
 ﻿  main.cpp
-  Window.cpp
+  SoundManager.cpp
   Generating code
-  All 227 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  385 of 394 functions (97.7%) were compiled, the rest were copied from previous compilation.
+    167 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
   TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)

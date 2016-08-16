@@ -1,4 +1,5 @@
 #include "Window/Window.h"
+#include "Sound\SoundManager.h"
 #include <SDL.h>
 int main(int argc, char* args[])
 {
@@ -6,7 +7,7 @@ int main(int argc, char* args[])
 	setlocale(LC_ALL, "Turkish");
 
 	Window window("Turki ENGINE", 800, 600, false);
-
+	SoundManager soundmgr;
 	while (window.running())
 	{
 		window.render();
