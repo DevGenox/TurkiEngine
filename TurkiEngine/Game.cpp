@@ -20,16 +20,19 @@ namespace Turki {
 	}
 	void Game::renderer()
 	{
-			int x, y; //Mouse Pozisyonunu al.
+		/*	int x, y; //Mouse Pozisyonunu al.
 			SDL_GetMouseState(&x, &y);
 
 			SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
 			SDL_RenderClear(gameRenderer);
+			*/
+		
+		EventHandle();
 
-			EventHandle();
-			SDL_RenderPresent(gameRenderer);
+		
+		//	SDL_RenderPresent(gameRenderer);
 
-			SDL_Delay(5);
+		//	SDL_Delay(5);
 
 		}
 	

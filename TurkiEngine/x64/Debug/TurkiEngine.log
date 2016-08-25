@@ -1,7 +1,4 @@
-﻿  Window.cpp
-  main.cpp
-  GameObject.cpp
-  Game.cpp
-  Generating Code...
-  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.exe
-  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.pdb (Partial PDB)
+﻿  main.cpp
+d:\project\visual studio 2015\projects\turkiengine\turkiengine\main.cpp(21): warning C4101: 'vbo': unreferenced local variable
+  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.exe
+  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\x64\Debug\TurkiEngine.pdb (Partial PDB)
