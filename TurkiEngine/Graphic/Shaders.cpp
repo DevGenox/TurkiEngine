@@ -92,7 +92,7 @@ namespace Turki {
 
 		// Compile Vertex Shader
 
-		std::cout << "Compiling shader : %s\n" << vertexPath << std::endl;
+		std::cout << "\nCompiling shader : \n" << vertexPath << std::endl;
 		char const* vertexSourcePointer = vertexShaderCode.c_str();
 		glShaderSource(vertexShaderID, 1, &vertexSourcePointer, NULL);
 		glCompileShader(vertexShaderID);
@@ -108,7 +108,7 @@ namespace Turki {
 
 		// Compile Fragment Shader
 
-		std::cout << "Compiling shader : %s\n" << fragmentPath << std::endl;
+		std::cout << "\nCompiling shader : \n" << fragmentPath << std::endl;
 		char const* fragmentSourcePointer = fragmentShaderCode.c_str();
 		glShaderSource(fragmentShaderID, 1, &fragmentSourcePointer, NULL);
 		glCompileShader(fragmentShaderID);
@@ -123,7 +123,7 @@ namespace Turki {
 		}
 
 		//Link Program
-		std::cout << "Program Aktarýlýyor : %s\n" << fragmentPath << std::endl;
+		std::cout << "\nProgram Aktarýlýyor : \n" << fragmentPath << std::endl;
 		GLuint ProgramID = glCreateProgram();
 		glAttachShader(ProgramID, vertexShaderID);
 		glAttachShader(ProgramID, fragmentShaderID);

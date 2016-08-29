@@ -1,8 +1,8 @@
-﻿  main.cpp
+﻿  Shaders.cpp
   Generating code
-  1 of 576 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  1 of 741 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
-  TurkiEngine.vcxproj -> D:\Project\Visual Studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)
+  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
+  TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)
