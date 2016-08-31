@@ -139,8 +139,10 @@
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObjects\GameObject.h" />
+    <ClInclude Include="GameObjects\GameObjectImage.h" />
     <ClInclude Include="Graphic\Buffer.h" />
     <ClInclude Include="Graphic\Circle.h" />
+    <ClInclude Include="Graphic\Cube.h" />
     <ClInclude Include="Graphic\IndexBuffer.h" />
     <ClInclude Include="Graphic\Shaders.h" />
     <ClInclude Include="Graphic\ShapeGenerator.h" />
@@ -159,8 +161,10 @@
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObjects\GameObject.cpp" />
+    <ClCompile Include="GameObjects\GameObjectImage.cpp" />
     <ClCompile Include="Graphic\Buffer.cpp" />
     <ClCompile Include="Graphic\Circle.cpp" />
+    <ClCompile Include="Graphic\Cube.cpp" />
     <ClCompile Include="Graphic\IndexBuffer.cpp" />
     <ClCompile Include="Graphic\Shaders.cpp" />
     <ClCompile Include="Graphic\ShapeGenerator.cpp" />

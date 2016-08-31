@@ -21,4 +21,12 @@ namespace Turki
 		squ.dy = 1;
 		return squ;
 	}
+	Cube ShapeGenerator::createCube(vec3 position, float Angle, vec3 rotRoute, vec3 scaleSize)
+	{
+		Cube cub;
+		cub.create(*m_Shader, *m_vao, m_pr_Mat, position, Angle, rotRoute, scaleSize);
+		cub.dx = 1;
+		cub.dy = 1;
+		return cub;
+	}
 }

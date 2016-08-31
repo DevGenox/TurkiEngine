@@ -28,9 +28,9 @@ namespace Turki
 		GLfloat verts[] = //2d 
 		{
 			0, 0, 0,
-			scaleSize.x, 0, 0,
 			0, scaleSize.y, 0,
-			scaleSize.x, scaleSize.y, 0
+			scaleSize.x, scaleSize.y, 0,
+			scaleSize.x, 0, 0
 		};
 		GLfloat colorVerts[] = //2d color
 		{
@@ -39,7 +39,7 @@ namespace Turki
 			0.0f, 0.2f, 0.0f,
 			0.3f, 1.0f, 1.0f
 		};
-		GLushort indicies[] = { 0,1,2, 2,1,3 };
+		GLushort indicies[] = { 0,1,2, 2,0,3 };
 
 		Buffer* shape = new Buffer(3 * 4, 3, verts);
 		vao.addVertex(shape, 0);

@@ -144,6 +144,39 @@ namespace Turki
 
 		return mat;
 	}
+	mat4 mat4::mylookat(vec3& eye, vec3& lookat, vec3& up, vec3& pos)
+	{
+		mat4 mat(1);
 
+		vec3 zaxis = eye - lookat;
+		zaxis.normalize();
+		vec3 xaxis(zaxis.y * up.z - up.y * zaxis.z,
+			       zaxis.z * up.x - up.z * zaxis.x,
+			       zaxis.x * up.y - up.x * zaxis.y);
+		xaxis.normalize();
+		vec3 yaxis(zaxis.y * xaxis.z - xaxis.y * zaxis.z,
+				   zaxis.z * xaxis.x - xaxis.z * zaxis.x,
+				   zaxis.x * xaxis.y - xaxis.x * zaxis.y);
+
+
+		mat.nums[4 * 0 + 0] = xaxis.x;
+		mat.nums[4 * 0 + 1] = xaxis.y;
+		mat.nums[4 * 0 + 2] = xaxis.z;
+
+		mat.nums[4 * 1 + 0] = yaxis.x;
+		mat.nums[4 * 1 + 1] = yaxis.y;
+		mat.nums[4 * 1 + 2] = yaxis.z;
+
+		mat.nums[4 * 2 + 0] = zaxis.x;
+		mat.nums[4 * 2 + 1] = zaxis.y;
+		mat.nums[4 * 2 + 2] = zaxis.z;
+
+
+		mat.nums[4 * 0 + 3] = -(xaxis.x * eye.x + xaxis.y * eye.y + xaxis.z * eye.z);
+		mat.nums[4 * 1 + 3] = -(yaxis.x * eye.x + yaxis.y * eye.y + yaxis.z * eye.z);
+		mat.nums[4 * 2 + 3] = -(zaxis.x * eye.x + zaxis.y * eye.y + zaxis.z * eye.z);
+
+		return mat;
+	}
 
 }

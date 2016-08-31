@@ -8,6 +8,7 @@
 #include <vector>
 #include "Square.h"
 #include "Circle.h"
+#include "Cube.h"
 namespace Turki
 {
 	class ShapeGenerator
@@ -16,6 +17,7 @@ namespace Turki
 		ShapeGenerator(Shaders& normShader, VertexArray& vao, mat4 pr_Mat);
 		~ShapeGenerator();
 		Square createSquare(vec3 position, float Angle, vec3 rotRoute, vec3 scaleSize);
+		Cube createCube(vec3 position, float Angle, vec3 rotRoute, vec3 scaleSize);
 		Shaders* m_Shader;
 		VertexArray* m_vao;
 		mat4 m_pr_Mat;

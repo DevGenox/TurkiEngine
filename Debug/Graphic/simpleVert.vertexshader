@@ -7,9 +7,9 @@ out vec3 realColor;
 uniform mat4 prMat = mat4(1.0);
 uniform mat4 viewMat = mat4(1.0);
 uniform mat4 translation = mat4(1.0);
-
+uniform mat4 camPos = mat4(1.0);
 void main()
 {
-gl_Position = prMat * translation * position;
+gl_Position = prMat * viewMat * translation * position;
 realColor = vertexColor;
 }

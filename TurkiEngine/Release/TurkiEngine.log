@@ -1,8 +1,22 @@
-﻿  Shaders.cpp
+﻿  Game.cpp
+  GameObject.cpp
+  GameObjectImage.cpp
+  Circle.cpp
+  Cube.cpp
+Graphic\Cube.cpp(78): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+  Shaders.cpp
+  ShapeGenerator.cpp
+  Square.cpp
+Graphic\Square.cpp(62): warning C4244: 'argument': conversion from 'float' to 'GLsizei', possible loss of data
+  main.cpp
+main.cpp(263): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Matris4.cpp
+  Vector3.cpp
+Math\Vector3.cpp(72): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating code
-  1 of 741 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  24 of 747 functions ( 3.2%) were compiled, the rest were copied from previous compilation.
+    11 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.exe
   TurkiEngine.vcxproj -> d:\project\visual studio 2015\Projects\TurkiEngine\Release\TurkiEngine.pdb (Full PDB)

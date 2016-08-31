@@ -1,4 +1,5 @@
 #pragma once
+#include <math.h>
 namespace Turki
 {
 	struct vec3
@@ -20,5 +21,8 @@ namespace Turki
 		vec3& operator-=(const vec3& other);
 		bool operator==(const vec3& other);
 		bool operator!=(const vec3& other);
+
+
+		void normalize();
 	};
 }

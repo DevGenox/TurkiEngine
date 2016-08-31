@@ -67,4 +67,13 @@ namespace Turki
 	{
 		return x != other.x && y != other.y && z != other.z;
 	}
+	void vec3::normalize()
+	{
+		float length = sqrt(x * x + y * y);
+
+		if (length != 0) {
+			x = x / length;
+			y = y / length;
+		}
+	}
 }
