@@ -14,10 +14,10 @@ namespace Turki
 		{
 			nums[i] = 0.0f;
 		}
-			nums[4 * 0] = diognal;
-			nums[4 * 1 + 1] = diognal;
-			nums[4 * 2 + 2] = diognal;
-			nums[4 * 3 + 3] = diognal;
+		nums[4 * 0] = diognal;
+		nums[4 * 1 + 1] = diognal;
+		nums[4 * 2 + 2] = diognal;
+		nums[4 * 3 + 3] = diognal;
 	}
 	mat4& mat4::operator+(const mat4& other)
 	{
@@ -110,7 +110,7 @@ namespace Turki
 
 		return mat;
 	}
-	mat4 mat4::perspective(float fov, float aspectRatio,float near, float far)
+	mat4 mat4::perspective(float fov, float aspectRatio, float near, float far)
 	{
 		mat4 mat(1);
 
@@ -148,15 +148,9 @@ namespace Turki
 	{
 		mat4 mat(1);
 
-		vec3 zaxis = eye - lookat;
-		zaxis.normalize();
-		vec3 xaxis(zaxis.y * up.z - up.y * zaxis.z,
-			       zaxis.z * up.x - up.z * zaxis.x,
-			       zaxis.x * up.y - up.x * zaxis.y);
-		xaxis.normalize();
-		vec3 yaxis(zaxis.y * xaxis.z - xaxis.y * zaxis.z,
-				   zaxis.z * xaxis.x - xaxis.z * zaxis.x,
-				   zaxis.x * xaxis.y - xaxis.x * zaxis.y);
+		vec3 zaxis = normalize(eye - lookat);
+		vec3 xaxis = normalize(cross(up, zaxis));
+		vec3 yaxis = cross(zaxis, xaxis);
 
 
 		mat.nums[4 * 0 + 0] = xaxis.x;
@@ -172,9 +166,9 @@ namespace Turki
 		mat.nums[4 * 2 + 2] = zaxis.z;
 
 
-		mat.nums[4 * 0 + 3] = -(xaxis.x * eye.x + xaxis.y * eye.y + xaxis.z * eye.z);
-		mat.nums[4 * 1 + 3] = -(yaxis.x * eye.x + yaxis.y * eye.y + yaxis.z * eye.z);
-		mat.nums[4 * 2 + 3] = -(zaxis.x * eye.x + zaxis.y * eye.y + zaxis.z * eye.z);
+		mat.nums[4 * 0 + 3] = -dot(xaxis, eye);
+		mat.nums[4 * 1 + 3] = -dot(yaxis, eye);
+		mat.nums[4 * 2 + 3] = -dot(zaxis, eye);
 
 		return mat;
 	}

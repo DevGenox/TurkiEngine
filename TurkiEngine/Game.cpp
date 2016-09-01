@@ -12,12 +12,13 @@ namespace Turki {
 	{
 	}
 
-	void Game::load(SDL_Renderer* render, mat4& pr_mat, Shaders& shader)
+	void Game::load(SDL_Renderer* render, mat4& pr_mat, Shaders& shader, Camera& cam)
 	{
 		gameRenderer = render;
 		imageMan.setRenderer(gameRenderer);
 		m_pr_mat = &pr_mat;
 		m_Shader = &shader;
+		m_Cam = &cam;
 		camera_Angle = 45.0f;
 
 	}
@@ -64,54 +65,106 @@ namespace Turki {
 				break;
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
-				case SDLK_LEFT:
-
-					camX += 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 1, 0),vec3(0, 0,0)));
+			/*	case SDLK_LEFT:
+					m_Cam->m_lookat.x -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_RIGHT:
-					camX -= 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+					m_Cam->m_lookat.x += 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_UP:
-					camY += 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+					m_Cam->m_lookat.y += 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_DOWN:
-					camY -= 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+					m_Cam->m_lookat.y -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_SPACE:
-					eyeY += 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.z -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_LSHIFT:
-					eyeY -= 0.1f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 0.5f, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.z -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_a:
-					eyeX -= 1.0f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 0.5f, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.x -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 				case SDLK_d:
-					eyeX += 1.0f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, -1.5f), vec3(0, 0.5f, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.x += 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 
 				case SDLK_w:
-					eyeY += 1.0f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, camZ), vec3(0, 0.5f, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.y += 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;
 
 				case SDLK_s:
-					eyeY -= 1.0f;
-					m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(eyeX, eyeY, eyeZ), vec3(camX, camY, camZ), vec3(0, 0.5f, 0), vec3(0, 0, 0)));
+					m_Cam->m_eye.y -= 0.1f;
+					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
+					break;*/
+
+				case SDLK_LEFT:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x - 0.5f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
+					break;
+				case SDLK_RIGHT:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x + 0.5f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
+					break;
+				case SDLK_UP:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x , m_Cam->m_lookat.y + 0.5f, m_Cam->m_lookat.z));
+					break;
+				case SDLK_DOWN:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y - 0.5f, m_Cam->m_lookat.z));
+					break;
+				case SDLK_SPACE:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y, m_Cam->m_lookat.z + 0.5f));
+					break;
+				case SDLK_LSHIFT:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y, m_Cam->m_lookat.z - 0.5f));
+					break;
+				case SDLK_a:
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x - 0.5f, m_Cam->m_eye.y, m_Cam->m_eye.z));
+					break;
+				case SDLK_d:
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x + 0.5f, m_Cam->m_eye.y, m_Cam->m_eye.z));
+					break;
+				case SDLK_w:
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x , m_Cam->m_eye.y + 0.5f, m_Cam->m_eye.z));
+					break;
+				case SDLK_s:
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y - 0.5f, m_Cam->m_eye.z));
+					break;
+				case SDLK_KP_8:
+					m_Cam->setPosUp(vec3(m_Cam->m_up.x, m_Cam->m_up.y + 0.5f, m_Cam->m_up.z));
+					break;
+				case SDLK_KP_5:
+					m_Cam->setPosUp(vec3(m_Cam->m_up.x, m_Cam->m_up.y - 0.5f, m_Cam->m_up.z));
+					break;
+				case SDLK_KP_4:
+					m_Cam->setPosUp(vec3(m_Cam->m_up.x - 0.5f, m_Cam->m_up.y, m_Cam->m_up.z));
+					break;
+				case SDLK_KP_6:
+					m_Cam->setPosUp(vec3(m_Cam->m_up.x + 0.5f, m_Cam->m_up.y, m_Cam->m_up.z));
 					break;
 
 				default:
 					break;
 				}
 				std::cout << SDL_GetKeyName(event.key.keysym.sym) << " Basýldý" << std::endl;
+				break;
+		    case SDL_MOUSEWHEEL:
+				if (event.wheel.y < 0)
+				{
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y, m_Cam->m_eye.z + 0.5f));
+				}
+				else
+				{
+					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y, m_Cam->m_eye.z - 0.5f));
+				}
 				break;
 			case SDL_QUIT:
 

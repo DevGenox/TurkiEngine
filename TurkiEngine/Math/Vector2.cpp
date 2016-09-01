@@ -3,7 +3,8 @@ namespace Turki
 {
 	vec2::vec2()
 	{
-
+		x = 0;
+		y = 0;
 	}
 	vec2::vec2(float vecX, float vecY)
 	{

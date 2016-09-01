@@ -3,7 +3,10 @@ namespace Turki
 {
 	vec4::vec4()
 	{
-
+		x = 0;
+		y = 0;
+		z = 0;
+		w = 0;
 	}
 	vec4::vec4(float vecX, float vecY, float vecZ, float vecW)
 	{

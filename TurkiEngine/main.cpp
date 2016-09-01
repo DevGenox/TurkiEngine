@@ -11,6 +11,7 @@
 #include "Graphic\IndexBuffer.h"
 #include "Graphic\VertexArray.h"
 #include "Graphic\ShapeGenerator.h"
+#include "Graphic\Camera.h"
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 768
 int main(int argc, char* args[])
@@ -21,7 +22,8 @@ int main(int argc, char* args[])
 	SoundManager soundmgr;
 	ImageManager imageMgr;
 	Game game;
-
+	Shaders shader("Graphic/simpleVert.vertexshader", "Graphic/simpleFrag.fragmentshader");
+	Camera cam(shader, vec3(0, 0, 0), 60, (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT, 0.1f, 1000.0f);
 
 
 	mat4 mat;
@@ -32,9 +34,9 @@ int main(int argc, char* args[])
 	mat4 scale;
 	mat4 view_Mat;
 
-	Shaders shader("Graphic/simpleVert.vertexshader", "Graphic/simpleFrag.fragmentshader");
+	
 	ortho = mat.orthographic(0.0f, 300.0f, 0.0f, 340.0f, -1.0f, 1.0f);
-	pers = mat.perspective(60.0f, (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT, 0.1f, 10.0f);
+	pers = mat.perspective(60.0f, (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT, 0.1f, 1000.0f);
 
 	translation = mat.translation(vec3(30, 15, 0));
 	rotation = mat.rotation(-60, vec3(0, 0, -1));
@@ -44,12 +46,9 @@ int main(int argc, char* args[])
 
 
 
-	game.load(window.getRenderer(),pers,shader);
-	game.camX = 0;
-	game.camY = 0;
-	game.camZ = -1.5f;
+	game.load(window.getRenderer(),pers,shader,cam);
+	
 	glClearColor(1, 1, 1, 1);
-
 	/*GLuint first = 0;
 	ShapeGenerator gen;
 	gen.createSquare(first,vec3(0,0,0) , alltranslation, ortho);*/
@@ -154,15 +153,15 @@ int main(int argc, char* args[])
 	int pz = 0;
 	VertexArray shapeVert;
 	ShapeGenerator generator(shader, shapeVert, pers);
-	//Square squares[50];
+	Square squares[50];
 	Cube cuu;
 	cuu = generator.createCube(vec3(0, 0, -30), -60, vec3(0, 0, -1), vec3(1, 1, 0));
-	shader.UniformMatrix4("viewMat", mat.mylookat(vec3(0, 0, 0), vec3(0, 0, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+	shader.UniformMatrix4("viewMat", cam.getViewProj());
 	//squares[0] = generator.createSquare(vec3(0, 0, -10), -30, vec3(0, 0, -1), vec3(2, 2, 0));
-//	squares[1] = generator.createSquare(vec3(0, 0, -10), -90, vec3(0, 0, -1), vec3(2, 2, 0));
+	//squares[1] = generator.createSquare(vec3(0, 0, -10), -90, vec3(0, 0, -1), vec3(2, 2, 0));
 	for (int i = 0; i < 50; i++)
 	{
-		//	squares[size] = generator.createSquare(vec3(px, 0, -pz), -90, vec3(1, 0, 0), vec3(30, 30, 0));
+			squares[size] = generator.createSquare(vec3(px, 0, -pz), -90, vec3(1, 0, 0), vec3(1, 1, 0));
 			px++;
 			py++;
 			size++;
@@ -258,18 +257,19 @@ int main(int argc, char* args[])
 #elif 1 //Perspective
 		angle++;
 		if (angle == 360) angle = 0;
-		//squares[0].draw(vec3(0, 0, -5), -angle, vec3(-1, 0, -0.5f));
-	//	squares[1].draw(vec3(0, 0, -10), -90, vec3(1, 0, 0));
-		cuu.draw(vec3(0, 0, -3), -angle, vec3(1, 1, 0));
-	/*	px = 0;
+	//	squares[0].draw(vec3(0, 0, -5), -angle, vec3(-1, 0, -0.5f));
+		//squares[1].draw(vec3(0, 0, -10), -90, vec3(1, 0, 0));
+	//	cuu.draw(vec3(0, -3, -3), -angle, vec3(1, 0, 0));
+		px = 0;
 		py = 0;
-		pz = 3;
+		pz = 0;
 		for (int i = 0; i < size; i++)
 		{
-			squares[i].draw(vec3(px, 0, -pz), -angle, vec3(1, 0, 0));
+			squares[i].draw(vec3(0, 0, -pz), -0, vec3(1, 0, 0));
 			px++;
 			py++;
-		}*/
+			pz++;
+		}
 
 #endif
 		SDL_GL_SwapWindow(window.getWindow());

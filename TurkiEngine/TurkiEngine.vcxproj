@@ -141,6 +141,7 @@
     <ClInclude Include="GameObjects\GameObject.h" />
     <ClInclude Include="GameObjects\GameObjectImage.h" />
     <ClInclude Include="Graphic\Buffer.h" />
+    <ClInclude Include="Graphic\Camera.h" />
     <ClInclude Include="Graphic\Circle.h" />
     <ClInclude Include="Graphic\Cube.h" />
     <ClInclude Include="Graphic\IndexBuffer.h" />
@@ -163,6 +164,7 @@
     <ClCompile Include="GameObjects\GameObject.cpp" />
     <ClCompile Include="GameObjects\GameObjectImage.cpp" />
     <ClCompile Include="Graphic\Buffer.cpp" />
+    <ClCompile Include="Graphic\Camera.cpp" />
     <ClCompile Include="Graphic\Circle.cpp" />
     <ClCompile Include="Graphic\Cube.cpp" />
     <ClCompile Include="Graphic\IndexBuffer.cpp" />

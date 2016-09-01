@@ -3,7 +3,9 @@ namespace Turki
 {
 	vec3::vec3()
 	{
-
+		x = 0;
+		y = 0;
+		z = 0;
 	}
 	vec3::vec3(float vecX, float vecY, float vecZ)
 	{

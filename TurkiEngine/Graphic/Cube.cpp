@@ -28,13 +28,13 @@ namespace Turki
 		//	scale = mat.scale(scaleSize);
 		GLfloat verts[] = //2d 
 		{
-			0.0f, 1.0f, 0.0f,
-			-1.0f, -1.0f, 1.0f,
-			1.0f, -1.0f, 1.0f,
+			0.0f, m_Scale.x, 0.0f,
+			-m_Scale.x, -m_Scale.x, m_Scale.x,
+			m_Scale.x, -m_Scale.x, m_Scale.x,
 
 			//0.0f, 1.0f, 0.0f,
 			//-1.0f, -1.0f, 1.0f,
-			0.0f, -1.0f, -1.0f,
+			0.0f, -m_Scale.x, -m_Scale.x,
 
 		//	0.0f, 1.0f, 0.0f,
 		//	0.0f, -1.0f, -1.0f,
