@@ -144,31 +144,31 @@ namespace Turki
 
 		return mat;
 	}
-	mat4 mat4::mylookat(vec3& eye, vec3& lookat, vec3& up, vec3& pos)
+	mat4 mat4::mylookat(vec3& eye, vec3& lookat, vec3& up)
 	{
 		mat4 mat(1);
 
 		vec3 zaxis = normalize(eye - lookat);
-		vec3 xaxis = normalize(cross(up, zaxis));
+		vec3 xaxis = cross(up, zaxis);
 		vec3 yaxis = cross(zaxis, xaxis);
 
 
 		mat.nums[4 * 0 + 0] = xaxis.x;
-		mat.nums[4 * 0 + 1] = xaxis.y;
-		mat.nums[4 * 0 + 2] = xaxis.z;
+		mat.nums[4 * 1 + 0] = xaxis.y;
+		mat.nums[4 * 2 + 0] = xaxis.z;
 
-		mat.nums[4 * 1 + 0] = yaxis.x;
+		mat.nums[4 * 0 + 1] = yaxis.x;
 		mat.nums[4 * 1 + 1] = yaxis.y;
-		mat.nums[4 * 1 + 2] = yaxis.z;
+		mat.nums[4 * 2 + 1] = yaxis.z;
 
-		mat.nums[4 * 2 + 0] = zaxis.x;
-		mat.nums[4 * 2 + 1] = zaxis.y;
+		mat.nums[4 * 0 + 2] = zaxis.x;
+		mat.nums[4 * 1 + 2] = zaxis.y;
 		mat.nums[4 * 2 + 2] = zaxis.z;
 
+		mat.nums[4 * 3 + 0] = -dot(xaxis, eye);
+		mat.nums[4 * 3 + 1] = -dot(yaxis, eye);
+		mat.nums[4 * 3 + 2] = -dot(zaxis, eye);
 
-		mat.nums[4 * 0 + 3] = -dot(xaxis, eye);
-		mat.nums[4 * 1 + 3] = -dot(yaxis, eye);
-		mat.nums[4 * 2 + 3] = -dot(zaxis, eye);
 
 		return mat;
 	}

@@ -1,5 +1,6 @@
 #pragma once
 #include "Math.h"
+#include "GL\glew.h"
 namespace Turki
 {
 	struct mat4
@@ -23,6 +24,6 @@ namespace Turki
 
 		mat4 perspective(float fov, float aspectRatio, float near, float far);
 		mat4 orthographic(float left, float right, float top, float bottom, float near, float far);
-		mat4 mylookat(vec3& eye, vec3& lookat, vec3& up, vec3& pos);
+		mat4 mylookat(vec3& eye, vec3& lookat, vec3& up);
 	};
 }

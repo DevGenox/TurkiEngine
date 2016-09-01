@@ -59,7 +59,7 @@ namespace Turki {
 				camera_Angle += 10;
 				*m_pr_mat = m_pr_mat->perspective(camera_Angle, (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT, 0.1f, 10000.0f);
 		//         m_Shader->UniformMatrix4("prMat", *m_pr_mat);
-				 m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(0, 0, 0), vec3(0, 0, -1.5f), vec3(0, 1, 0), vec3(0, 0, 0)));
+				 m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(0, 0, 0), vec3(0, 0, -1.5f), vec3(0, 1, 0)));
 				
 				// m_Shader->UniformMatrix4("viewMat", );
 				break;
@@ -149,6 +149,7 @@ namespace Turki {
 					break;
 				case SDLK_KP_6:
 					m_Cam->setPosUp(vec3(m_Cam->m_up.x + 0.5f, m_Cam->m_up.y, m_Cam->m_up.z));
+					
 					break;
 
 				default:

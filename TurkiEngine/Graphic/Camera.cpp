@@ -17,7 +17,7 @@ namespace Turki
 	}
 	mat4 Camera::getViewProj()
 	{
-		return m_Pr.mylookat(m_eye, m_lookat, m_up, vec3(0, 0, 0));
+		return m_Pr.mylookat(m_eye, m_lookat, m_up);
 	}
 	void Camera::setPosEye(vec3 eyePos)
 	{
