@@ -144,14 +144,15 @@ namespace Turki
 
 		return mat;
 	}
-	mat4 mat4::mylookat(vec3& eye, vec3& lookat, vec3& up)
+	mat4 mat4::mylookat(vec3 eye, vec3 lookat, vec3 up)
 	{
 		mat4 mat(1);
 
-		vec3 zaxis = normalize(eye - lookat);
-		vec3 xaxis = cross(up, zaxis);
-		vec3 yaxis = cross(zaxis, xaxis);
-
+		vec3 zaxis = normalize(lookat - eye);
+		vec3 yaxis = up;
+		vec3 xaxis = cross(yaxis, zaxis);
+		yaxis = normalize(cross(zaxis, xaxis));
+		xaxis = normalize(xaxis);
 
 		mat.nums[4 * 0 + 0] = xaxis.x;
 		mat.nums[4 * 1 + 0] = xaxis.y;

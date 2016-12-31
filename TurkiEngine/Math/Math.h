@@ -12,7 +12,7 @@ namespace Turki
 		return (angle * ((float)M_PI / 180.0f));
 
 	}
-	inline vec3 normalize(vec3& theVec)
+	inline vec3 normalize(vec3 theVec)
 	{
 		float length = sqrt(theVec.x * theVec.x + theVec.y * theVec.y + theVec.z * theVec.z);
 

@@ -24,13 +24,14 @@ namespace Turki {
 	}
 	void Game::renderer()
 	{
-		/*	int x, y; //Mouse Pozisyonunu al.
-			SDL_GetMouseState(&x, &y);
 
+		/*
 			SDL_SetRenderDrawColor(gameRenderer, 183, 183, 183, 255);
 			SDL_RenderClear(gameRenderer);
 			*/
-		
+		int xPos, yPos; //Mouse Pozisyonunu al.
+		SDL_GetMouseState(&xPos, &yPos);
+		m_Cam->mouseControl(xPos, yPos);
 		EventHandle();
 
 		
@@ -58,10 +59,8 @@ namespace Turki {
 					std::cout << " SOL týklandý" << std::endl;
 				camera_Angle += 10;
 				*m_pr_mat = m_pr_mat->perspective(camera_Angle, (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT, 0.1f, 10000.0f);
-		//         m_Shader->UniformMatrix4("prMat", *m_pr_mat);
 				 m_Shader->UniformMatrix4("viewMat", m_pr_mat->mylookat(vec3(0, 0, 0), vec3(0, 0, -1.5f), vec3(0, 1, 0)));
-				
-				// m_Shader->UniformMatrix4("viewMat", );
+
 				break;
 			case SDL_KEYDOWN:
 				switch (event.key.keysym.sym) {
@@ -108,35 +107,35 @@ namespace Turki {
 					m_Shader->UniformMatrix4("viewMat", m_Cam->getViewProj());
 					break;*/
 
-				case SDLK_LEFT:
-					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x - 0.5f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
+			/*	case SDLK_LEFT:
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x - 0.1f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
 					break;
 				case SDLK_RIGHT:
-					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x + 0.5f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x + 0.1f, m_Cam->m_lookat.y, m_Cam->m_lookat.z));
 					break;
 				case SDLK_UP:
-					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x , m_Cam->m_lookat.y + 0.5f, m_Cam->m_lookat.z));
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x , m_Cam->m_lookat.y + 0.1f, m_Cam->m_lookat.z));
 					break;
 				case SDLK_DOWN:
-					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y - 0.5f, m_Cam->m_lookat.z));
+					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y - 0.1f, m_Cam->m_lookat.z));
 					break;
 				case SDLK_SPACE:
 					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y, m_Cam->m_lookat.z + 0.5f));
 					break;
 				case SDLK_LSHIFT:
 					m_Cam->setPosLook(vec3(m_Cam->m_lookat.x, m_Cam->m_lookat.y, m_Cam->m_lookat.z - 0.5f));
-					break;
+					break;*/
 				case SDLK_a:
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x - 0.5f, m_Cam->m_eye.y, m_Cam->m_eye.z));
+					m_Cam->setPosEye(vec3(-0.1f,0,0));
 					break;
 				case SDLK_d:
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x + 0.5f, m_Cam->m_eye.y, m_Cam->m_eye.z));
+					m_Cam->setPosEye(vec3(+0.1f, 0, 0));
 					break;
 				case SDLK_w:
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x , m_Cam->m_eye.y + 0.5f, m_Cam->m_eye.z));
+					m_Cam->setPosEye(vec3(0, 0, 0.1f));
 					break;
 				case SDLK_s:
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y - 0.5f, m_Cam->m_eye.z));
+					m_Cam->setPosEye(vec3(0, 0, -0.1f));
 					break;
 				case SDLK_KP_8:
 					m_Cam->setPosUp(vec3(m_Cam->m_up.x, m_Cam->m_up.y + 0.5f, m_Cam->m_up.z));
@@ -160,11 +159,11 @@ namespace Turki {
 		    case SDL_MOUSEWHEEL:
 				if (event.wheel.y < 0)
 				{
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y, m_Cam->m_eye.z + 0.5f));
+					m_Cam->setPosEye(vec3(0, 0.1f, 0));
 				}
 				else
 				{
-					m_Cam->setPosEye(vec3(m_Cam->m_eye.x, m_Cam->m_eye.y, m_Cam->m_eye.z - 0.5f));
+					m_Cam->setPosEye(vec3(0, -0.1f, 0));
 				}
 				break;
 			case SDL_QUIT:

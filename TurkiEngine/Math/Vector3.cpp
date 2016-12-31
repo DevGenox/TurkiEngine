@@ -71,11 +71,12 @@ namespace Turki
 	}
 	void vec3::normalize()
 	{
-		float length = sqrt(x * x + y * y);
+		float length = sqrt(x * x + y * y + z * z);
 
 		if (length != 0) {
 			x = x / length;
 			y = y / length;
+			z = z / length;
 		}
 	}
 }
